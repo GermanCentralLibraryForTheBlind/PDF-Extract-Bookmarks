@@ -33,6 +33,12 @@ namespace PDF_Extract_Bookmarks
 		{
 			try
 			{
+				if(tbxInput.Text == string.Empty)
+				{
+					MessageBox.Show("Please specify the path to the pdf file", "Path", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					return;
+				}
+
 				PdfReader pdfReader = new PdfReader(tbxInput.Text);
 
 				IList<Dictionary<string, object>> bookmarks = SimpleBookmark.GetBookmark(pdfReader);

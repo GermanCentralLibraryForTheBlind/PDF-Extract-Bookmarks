@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Xml;
-using System.Xml.Linq;
 
 using iTextSharp.text.pdf;
 
@@ -59,6 +53,8 @@ namespace PDF_Extract_Bookmarks
 				extractToXML(memStream, tbxOutput2.Text);
 
 				pdfReader.Close();
+
+				MessageBox.Show("Extraction is successfully completed.", "Extraction", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			}
 			catch (Exception ex)
 			{

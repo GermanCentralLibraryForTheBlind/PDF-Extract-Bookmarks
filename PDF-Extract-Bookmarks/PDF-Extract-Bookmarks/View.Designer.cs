@@ -37,7 +37,6 @@
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.btnExtract = new System.Windows.Forms.Button();
-			this.lbResult = new System.Windows.Forms.Label();
 			this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.grpInput.SuspendLayout();
 			this.SuspendLayout();
@@ -112,15 +111,6 @@
 			this.btnExtract.UseVisualStyleBackColor = true;
 			this.btnExtract.Click += new System.EventHandler(this.extractClick);
 			// 
-			// lbResult
-			// 
-			this.lbResult.AutoSize = true;
-			this.lbResult.ForeColor = System.Drawing.Color.OliveDrab;
-			this.lbResult.Location = new System.Drawing.Point(292, 224);
-			this.lbResult.Name = "lbResult";
-			this.lbResult.Size = new System.Drawing.Size(0, 13);
-			this.lbResult.TabIndex = 6;
-			// 
 			// openFileDialog
 			// 
 			this.openFileDialog.FileName = "openFileDialog1";
@@ -130,7 +120,6 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(820, 263);
-			this.Controls.Add(this.lbResult);
 			this.Controls.Add(this.btnExtract);
 			this.Controls.Add(this.tbxOutput2);
 			this.Controls.Add(this.tbxOutput1);
@@ -161,7 +150,6 @@
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Button btnExtract;
-		private System.Windows.Forms.Label lbResult;
 		private System.Windows.Forms.OpenFileDialog openFileDialog;
 	}
 }

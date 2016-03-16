@@ -94,26 +94,9 @@ namespace PDF_Extract_Bookmarks
 			{
 				tw.WriteStartElement("html", "http://www.w3.org/1999/xhtml");
 
-				while (reader.Read())
-				{
-					switch (reader.NodeType)
-					{
-						case XmlNodeType.Element:
-						if (reader.Name == "Title")
-							tw.WriteStartElement("H"+reader.Depth);
-						else
-							tw.WriteStartElement(reader.Name);
-						break;
-						case XmlNodeType.Text:
-						tw.WriteValue(reader.Value);
-						break;
-						case XmlNodeType.EndElement:
-						tw.WriteEndElement();
-						break;
-					}
-				}
-				tw.WriteEndElement();
+				writeInnerStructure(reader, tw);
 
+				tw.WriteEndElement();
 				tw.Flush();
 				tw.Close();
 				htmlDoc.Save(writer);
@@ -130,29 +113,35 @@ namespace PDF_Extract_Bookmarks
 
 			writer.WriteStartDocument();
 
+			writeInnerStructure(reader, writer);
+
+			writer.WriteEndDocument();
+
+			writer.Flush();
+			writer.Close();
+
+		}
+
+		private void writeInnerStructure(XmlTextReader reader, XmlWriter xw)
+		{
 			while (reader.Read())
 			{
 				switch (reader.NodeType)
 				{
 					case XmlNodeType.Element:
 					if (reader.Name == "Title")
-						writer.WriteStartElement("H"+reader.Depth);
+						xw.WriteStartElement("H"+reader.Depth);
 					else
-						writer.WriteStartElement(reader.Name);
+						xw.WriteStartElement(reader.Name);
 					break;
 					case XmlNodeType.Text:
-					writer.WriteValue(reader.Value);
+					xw.WriteValue(reader.Value);
 					break;
 					case XmlNodeType.EndElement:
-					writer.WriteEndElement();
+					xw.WriteEndElement();
 					break;
 				}
 			}
-			writer.WriteEndDocument();
-
-			writer.Flush();
-			writer.Close();
-
 		}
 	}
 }
